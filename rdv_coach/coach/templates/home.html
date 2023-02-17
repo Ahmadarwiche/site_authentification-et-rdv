@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <figure>
+            <img src="https://res.cloudinary.com/dvjfemxbz/image/upload/v1670432530/logo_coach_sportif_bvssb4.jpg" alt="logo de notre site">
+        </figure>
+        <ul>
+            <li><a href="{% url 'login' %}">Appointment/Login</a></li>
+            {% if user.is_authenticated %}
+            {% if user.username == 'AhmadDarwiche1992'%}
+            <li><a href="{% url 'staffPanel' %}">Staff Panel</a></li> 
+            {% endif %}
+            <li>
+                {% if user.username != 'AhmadDarwiche1992' %} <li><a  href="{% url 'userPanel' %}">User Panel</a></li> {% endif %}
+                <li><a  href="{% url 'logout' %}">Logout</a></li>  
+            </li>
+            {% endif %} 
+            
+        </ul>
+    </nav>
+
+    <header>
+        <section>
+            <h1>Welcome to our page</h1>
+            <h2>Lorem, ipsum.</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> 
+                Sint alias ratione sed nesciunt quia enim accusantium quas suscipit facere harum soluta, repellendus iste totam animi repudiandae culpa dicta incidunt. Accusantium. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus sapiente sit culpa non eveniet sint maiores natus reprehenderit dolorem rem veritatis accusantium adipisci ad, dignissimos a commodi reiciendis quia laboriosam.
+            </p>
+            <ul>
+                <li><a href="" class="button A">Button A</a></li>
+                <li><a href="" class="button B">Button B</a></li>
+                <li><a href="" class="button C">Button C</a></li>
+            </ul>
+        </section>
+        <figure>
+            <img src="https://st.depositphotos.com/1854227/3844/i/950/depositphotos_38443431-stock-photo-fitness-coach.jpg" alt="Illustration d'une personne qui est en train de lire">
+        </figure>
+    </header>
+</body>
+{% endblock  %}
